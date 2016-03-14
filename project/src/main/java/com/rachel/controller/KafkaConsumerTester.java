@@ -52,7 +52,7 @@ public class KafkaConsumerTester {
 		String zooKeeper = "192.168.30.189:2181";
         String groupId = "fuhu-consumer-group";
         String topic = "topic" ;
-        int threads = 1;
+        int threads = 2;
  
         KafkaConsumerTester example = new KafkaConsumerTester(zooKeeper, groupId, topic);
         example.run(threads);

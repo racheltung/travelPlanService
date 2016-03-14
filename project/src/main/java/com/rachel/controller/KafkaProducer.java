@@ -17,8 +17,10 @@ public class KafkaProducer {
 		ProducerConfig prodConfig = new ProducerConfig(prop);
 		kafka.javaapi.producer.Producer<String, String> producer = new kafka.javaapi.producer.Producer<String, String>(prodConfig);
 		SimpleDateFormat dateFormat = new SimpleDateFormat();
-		KeyedMessage<String, String> message =new KeyedMessage<String, String>(TOPIC,"Test message from java program " + dateFormat.format(new Date()));
-        producer.send(message);
+		for (int i = 0; i<50; i++){
+			KeyedMessage<String, String> message =new KeyedMessage<String, String>(TOPIC, i + ":" + dateFormat.format(new Date()));
+			producer.send(message);
+		}
         producer.close();
 	}
 
